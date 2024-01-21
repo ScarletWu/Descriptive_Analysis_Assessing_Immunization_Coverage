@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Simulates dinesafe data form opendatatoronto
+# Purpose: Simulates immunization data form opendatatoronto
 # Author: Ruoxian Wu
 # Date: 21 January 2023
 # Contact: scarletruoxian.wu@utoronto.ca
@@ -14,16 +14,24 @@ library(opendatatoronto)
 library(tidyverse)
 library(dplyr)
 
-# get package
-package <- show_package("99ff3657-b2e7-4005-a6fd-c36838ccc96d")
-package
 
-# get all resources for this package
-resources <- list_package_resources("99ff3657-b2e7-4005-a6fd-c36838ccc96d")
+# Set seed for reproducibility
+set.seed(123)
 
-# identify datastore resources; by default, Toronto Open Data sets datastore resource format to CSV for non-geospatial and GeoJSON for geospatial resources
-datastore_resources <- filter(resources, tolower(format) %in% c('csv', 'geojson'))
+# Number of records to simulate
+# num_records is chosen to match the size of the original dataset.
+num_records <- 800
 
-# load the first datastore resource as a sample
-data <- filter(datastore_resources, row_number()==1) %>% get_resource()
+# Simulating data
+simulated_data <- data.frame(
+  _id = 1:num_records,
+  SchoolName = paste("School", 1:num_records, sep = "_"),
+  EnrolledPopulation = sample(50:1500, num_records, replace = TRUE),
+  DTPCoverageRate = runif(num_records, min = 70, max = 100),
+  DTPReligiousExemptionRate = runif(num_records, min = 0, max = 5),
+  MMRCoverageRate = runif(num_records, min = 70, max = 100),
+  MMRReligiousExemptionRate = runif(num_records, min = 0, max = 5),
+  Lat = runif(num_records, min = 43.6, max = 43.9),
+  Lng = runif(num_records, min = -79.5, max = -79.1)
+)
 
