@@ -55,3 +55,4 @@ simulated_data <- data.frame(
   MMRReligiousExemptionRate = runif(num_records, min = 0, max = 5)
 )
 
+head(simulated_data)
