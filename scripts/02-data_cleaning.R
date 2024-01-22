@@ -26,7 +26,9 @@ selected_data <-
     dtp_coverage_rate_percent,
     dtp_religious_exemption_rate_percent,
     mmr_coverage_rate_percent,
-    mmr_religious_exemption_rate_percent
+    mmr_religious_exemption_rate_percent,
+    lat,
+    lng
   )
 
 head(selected_data)
