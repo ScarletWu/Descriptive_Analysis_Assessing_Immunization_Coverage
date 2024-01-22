@@ -3,9 +3,7 @@
 # Author: Ruoxian Wu
 # Date: 21 January 2023
 # Contact: scarletruoxian.wu@utoronto.ca
-# License: MIT
 # Pre-requisites: 
-#install.packages("opendatatoronto")
 #install.packages("tidyverse")
 #install.packages("dplyr")
 #install.packages("janitor")
@@ -17,25 +15,6 @@ library(tidyverse)
 library(dplyr)
 library(janitor)
 
-#### Basic cleaning ####
-raw_data <-
-  read_csv("/cloud/project/inputs/data/immunization.csv")
-
-# Make the names easier to type
-cleaned_data <-
-  clean_names(raw_data)
-cleaned_data
-
-selected_data <-
-  cleaned_data |>
-  select(
-    school_name,
-    enrolled_population,
-    dtp_coverage_rate_percent,
-    dtp_religious_exemption_rate_percent,
-    mmr_coverage_rate_percent,
-    mmr_religious_exemption_rate_percent
-  )
 
 # Set seed for reproducibility
 set.seed(123)

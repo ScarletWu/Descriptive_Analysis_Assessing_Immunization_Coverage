@@ -3,9 +3,10 @@
 # Author: Ruoxian Wu
 # Date: 21 January 2023
 # Contact: scarletruoxian.wu@utoronto.ca
-# License: MIT
 # Pre-requisites: 
-
+#install.packages("opendatatoronto")
+#install.packages("tidyverse")
+#install.packages("dplyr")
 
 #### Workspace setup ####
 library(opendatatoronto)
