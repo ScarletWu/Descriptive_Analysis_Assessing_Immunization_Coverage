@@ -38,7 +38,8 @@ correlation_matrix <- cor(simulated_data %>%
                                    DTPCoverageRate,
                                    DTPReligiousExemptionRate,
                                    MMRCoverageRate,
-                                   MMRReligiousExemptionRate))
+                                   MMRReligiousExemptionRate,
+                                   ))
 print(correlation_matrix)
 
 
@@ -65,5 +66,6 @@ correlation_matrix2 <- cor(selected_data %>%
                                    dtp_coverage_rate_percent,
                                    dtp_religious_exemption_rate_percent, 
                                    mmr_coverage_rate_percent,
-                                   mmr_religious_exemption_rate_percent))
+                                   mmr_religious_exemption_rate_percent,
+                                   ))
 print(correlation_matrix2)

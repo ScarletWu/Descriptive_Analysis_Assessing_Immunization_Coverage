@@ -31,9 +31,8 @@ simulated_data <- data.frame(
   DTPCoverageRate = runif(num_records, min = 70, max = 100),
   DTPReligiousExemptionRate = runif(num_records, min = 0, max = 5),
   MMRCoverageRate = runif(num_records, min = 70, max = 100),
-  MMRReligiousExemptionRate = runif(num_records, min = 0, max = 5),
-  Lat = runif(num_records, min = 43.6, max = 43.9),
-  Lng = runif(num_records, min = -79.5, max = -79.1)
-)
+  MMRReligiousExemptionRate = runif(num_records, min = 0, max = 5)
+  )
+
 
 head(simulated_data)
