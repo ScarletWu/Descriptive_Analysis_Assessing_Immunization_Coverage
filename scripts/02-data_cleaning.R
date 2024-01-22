@@ -33,3 +33,4 @@ head(selected_data)
 
 #### Save data ####
 write_csv(cleaned_data, "outputs/data/cleaned_data.csv")
+write_csv(selected_data, "outputs/data/analysis_data.csv")
