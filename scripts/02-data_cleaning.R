@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Cleans the raw data
+# Purpose: Cleans the raw immunization data.
 # Author: Ruoxian Wu
 # Date: 22 Januarry 2024
 # Contact: scarletruoxian.wu@utoronto.ca
