@@ -24,18 +24,22 @@ analysis_data
 
 ### Model data ####
 
-hist(analysis_data$dtp_coverage_rate_percent,
+DTP_hist <- hist(analysis_data$dtp_coverage_rate_percent,
      main = "Histogram of DTP Coverage Rate", 
      xlab = "DTP Coverage Rate (%)", breaks = 30)
 
-hist(analysis_data$mmr_coverage_rate_percent,
+MMR_hist <- hist(analysis_data$mmr_coverage_rate_percent,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
 
 #### Save model ####
 saveRDS(
-  first_model,
+  DTP_hist,
   file = "outputs/models/first_model.rds"
 )
 
+saveRDS(
+  MMR_hist,
+  file = "outputs/models/second_model.rds"
+)
 
