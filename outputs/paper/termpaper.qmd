@@ -83,7 +83,7 @@ first_model <-
 #| label: DTP_histogram
 #| fig-cap: histogram of DTP coverage rate percent
 
-DTP_hist <- hist(ana_data$dtp_coverage_rate_percent,
+DTP_hist <- hist(analysis_data$dtp_coverage_rate_percent,
      main = "Histogram of DTP Coverage Rate", 
      xlab = "DTP Coverage Rate (%)", breaks = 30)
 
@@ -95,7 +95,7 @@ DTP_hist <- hist(ana_data$dtp_coverage_rate_percent,
 #| fig-cap: histogram of MMR coverage rate percent
 
 
-MMR_hist <- hist(ana_data$mmr_coverage_rate_percent,
+MMR_hist <- hist(analysis_data$mmr_coverage_rate_percent,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
 ```

@@ -1,8 +1,6 @@
 ---
 title: "A Descriptive Analysis Assessing Immunization Coverage and Exemption Rates in Toronto's Schools"
-
-author: 
-  - Ruoxian Wu
+author: Ruoxian Wu
 date: January 23,2024
 date-format: long
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
