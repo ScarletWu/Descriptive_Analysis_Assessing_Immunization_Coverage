@@ -23,35 +23,14 @@ analysis_data
 
 
 ### Model data ####
-dtp_lm <- lm(dtp_coverage_rate_percent ~ enrolled_population + 
-     dtp_religious_exemption_rate_percent,
-   data = analysis_data)
-dtp_lm
 
-mmr_lm <- lm(mmr_coverage_rate_percent ~ enrolled_population + 
-     mmr_religious_exemption_rate_percent,
-   data = analysis_data)
-mmr_lm
+hist(analysis_data$dtp_coverage_rate_percent,
+     main = "Histogram of DTP Coverage Rate", 
+     xlab = "DTP Coverage Rate (%)", breaks = 30)
 
-
-dtp_coefs <- tidy(dtp_lm)
-mmr_coefs <- tidy(mmr_lm)
-
-# Plotting the coefficients for dtp_lm
-ggplot(dtp_coefs, aes(x = term, y = estimate)) +
-  geom_col() +
-  coord_flip() +
-  labs(title = "Coefficients of the DTP Linear Model",
-       x = "Terms",
-       y = "Estimates")
-
-# Plotting the coefficients for mmr_lm
-ggplot(mmr_coefs, aes(x = term, y = estimate)) +
-  geom_col() +
-  coord_flip() +
-  labs(title = "Coefficients of the MMR Linear Model",
-       x = "Terms",
-       y = "Estimates")
+hist(analysis_data$mmr_coverage_rate_percent,
+     main = "Histogram of MMR Coverage Rate", 
+     xlab = "MMR Coverage Rate (%)", breaks = 30)
 
 #### Save model ####
 saveRDS(
