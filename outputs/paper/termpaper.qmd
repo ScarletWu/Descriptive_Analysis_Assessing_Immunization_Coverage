@@ -45,6 +45,7 @@ Some of our data is of opendatatoronto (@opendatatoronto). This paper is interes
 #| message: false
 #| echo: false
 
+
 ### Read dataset
 analysis_data <- read_csv("/cloud/project/outputs/data/analysis_data.csv")
 analysis_data
@@ -63,7 +64,7 @@ We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use
 
 # Results
 
-Our results are summarized in @tbl-modelresults.
+The histograms representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
 
 
 ```{r}
@@ -82,6 +83,9 @@ first_model <-
 ```{r}
 #| label: DTP_histogram
 #| fig-cap: histogram of DTP coverage rate percent
+#| echo: false
+#| warning: false
+#| message: false
 
 DTP_hist <- hist(analysis_data$dtp_coverage_rate_percent,
      main = "Histogram of DTP Coverage Rate", 
@@ -93,9 +97,28 @@ DTP_hist <- hist(analysis_data$dtp_coverage_rate_percent,
 ```{r}
 #| label: MMR_histogram
 #| fig-cap: histogram of MMR coverage rate percent
-
+#| echo: false
+#| warning: false
+#| message: false
 
 MMR_hist <- hist(analysis_data$mmr_coverage_rate_percent,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
 ```
+
+# Discussion
+
+The analysis of Toronto school immunization data highlights some interesting trends. Larger schools showed a tendency towards slightly lower DTP coverage rates and marginally higher exemption rates for both DTP and MMR, but these relationships were relatively weak. On the other hand, the same larger schools exhibited moderately higher MMR coverage rates.
+
+In terms of vaccine-specific data, there was a notable trend where higher exemption rates corresponded with lower coverage rates for both DTP and MMR vaccines. Additionally, the exemption rates for DTP and MMR were highly consistent across schools, suggesting similar patterns in how exemptions are granted for these vaccines.
+
+Descriptive statistics revealed that the vaccination coverage and exemption rates across schools in Toronto vary, with some schools meeting or exceeding public health targets, while others fall short. This variation underscores the importance of tailored public health strategies to address the specific needs of different school communities.Results Summary of School Immunization Data
+
+The analysis of Toronto school immunization data highlights some interesting trends. Larger schools showed a tendency towards slightly lower DTP coverage rates and marginally higher exemption rates for both DTP and MMR, but these relationships were relatively weak. On the other hand, the same larger schools exhibited moderately higher MMR coverage rates.
+
+In terms of vaccine-specific data, there was a notable trend where higher exemption rates corresponded with lower coverage rates for both DTP and MMR vaccines. Additionally, the exemption rates for DTP and MMR were highly consistent across schools, suggesting similar patterns in how exemptions are granted for these vaccines.
+
+Descriptive statistics revealed that the vaccination coverage and exemption rates across schools in Toronto vary, with some schools meeting or exceeding public health targets, while others fall short. This variation underscores the importance of tailored public health strategies to address the specific needs of different school communities.
+
+
+# Reference

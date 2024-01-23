@@ -91,6 +91,13 @@ MMR_hist <- hist(ana_data$mmr_coverage_rate_percent,
 
 # Discussion
 
+Results Summary of School Immunization Data
+
+The analysis of Toronto school immunization data highlights some interesting trends. Larger schools showed a tendency towards slightly lower DTP coverage rates and marginally higher exemption rates for both DTP and MMR, but these relationships were relatively weak. On the other hand, the same larger schools exhibited moderately higher MMR coverage rates.
+
+In terms of vaccine-specific data, there was a notable trend where higher exemption rates corresponded with lower coverage rates for both DTP and MMR vaccines. Additionally, the exemption rates for DTP and MMR were highly consistent across schools, suggesting similar patterns in how exemptions are granted for these vaccines.
+
+Descriptive statistics revealed that the vaccination coverage and exemption rates across schools in Toronto vary, with some schools meeting or exceeding public health targets, while others fall short. This variation underscores the importance of tailored public health strategies to address the specific needs of different school communities.
 ## First discussion point {#sec-first-point}
 
 If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
