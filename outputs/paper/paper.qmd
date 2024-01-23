@@ -38,35 +38,22 @@ The paper is organized as follows: Following this introduction, Section 2 review
 
 # Data {#sec-data}
 
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+Some of our data is of opendatatoronto (@opendatatoronto).
 
 
 
 # Model
 
-The goal of our modelling strategy is twofold. Firstly,...
+The goal of our modelling strategy is to uncover and understand the underlying patterns and trends in immunization coverage rates and exemption rates within the studied school populations. This includes identifying variations across different schools, time periods, and possibly demographic groups.
 
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
-
-## Model set-up
-
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
-
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
+This model also aim to evaluate the level of compliance with the ISPA across schools in Toronto. The model aims to quantify how well schools are adhering to the requirements set forth by the ISPA.
 
 We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
 
 
 ### Model justification
 
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
+We expect a positive relationship between the immunization coverage rate and the population of the school. hi. In particular...
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
 
