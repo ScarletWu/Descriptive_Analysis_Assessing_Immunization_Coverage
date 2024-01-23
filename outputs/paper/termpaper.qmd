@@ -1,0 +1,21 @@
+---
+title: "termpaper"
+author: "Ruoxian Wu"
+format: "pdf""
+date: January 23, 2024
+date-format: long
+abstract: "."
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+#Introduction
