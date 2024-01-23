@@ -1,10 +1,8 @@
-# Starter folder
+# A Descriptive Analysis Assessing ImmunizationCoverage and Exemption Rates in Toronto’sSchools
 
 ## Overview
 
-This repo provides students with a foundation for their own projects associated with *Telling Stories with Data*. You do not need every aspect for every paper and you should delete aspects that you do not need.
-
-To use this folder, click the green "Code" button", then "Download ZIP". Move the downloaded folder to where you want to work on your own computer, and then modify it to suit.
+This research analyzes vaccination rates and exemptions among Toronto's school-aged children using 2018-2019 data, revealing significant variations across schools. 
 
 ## File Structure
 
