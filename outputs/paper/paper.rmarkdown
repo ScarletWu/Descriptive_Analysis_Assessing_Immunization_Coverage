@@ -80,7 +80,7 @@ first_model <-
 ```{r}
 #| label: DTP_histogram
 #| fig-cap: histogram of DTP coverage rate percent
-#| echo: false
+
 
 
 ana_data <- read_csv("/cloud/project/outputs/data/analysis_data.csv")

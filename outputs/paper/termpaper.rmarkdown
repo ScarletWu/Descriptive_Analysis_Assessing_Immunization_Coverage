@@ -1,11 +1,10 @@
 ---
 title: "A Descriptive Analysis Assessing Immunization Coverage and Exemption Rates in Toronto's Schools"
 
-author: 
-  - Ruoxian Wu
+author: "Ruoxian Wu"
 date: January 23,2024
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This study investigates immunization coverage and exemption rates among school-aged children in Toronto, addressing a gap in localized public health data analysis. Utilizing records from Toronto Public Health for the 2017/2018 and 2018/2019 academic years, we conduct a descriptive statistical analysis to assess compliance with the Immunization of School Pupils Act (ISPA). Our findings highlight significant variations in immunization rates across schools and reveal trends in medical and philosophical exemptions. These insights are crucial for informing public health strategies and policies, underscoring the need for targeted interventions to enhance vaccine coverage. The paper contributes to the broader discourse on public health management in urban educational settings."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -20,7 +19,10 @@ library(tidyverse)
 library(palmerpenguins)
 library(ggplot2)
 library(broom)
+library(knitr)
+library(here)
 ```
+
 
 
 # Introduction
@@ -33,13 +35,23 @@ Despite the critical role of immunization in public health, there exists a gap i
 
 The methodology of this study is grounded in Descriptive Statistics Analysis, which is pivotal for providing a foundational understanding of the data. This approach involves calculating fundamental statistical measures such as mean, median, mode, and standard deviation for key variables, namely immunization rates and exemption rates among school pupils in Toronto. By distilling this data into basic statistical terms, the analysis aims to shed light on the overall level of compliance with the ISPA requirements across different schools. This method provides a straightforward, yet powerful, means of evaluating the current state of student immunization coverage in the city, offering a clear snapshot of both adherence to and deviations from public health mandates.
 
-The paper is organized as follows: Following this introduction, Section 2 reviews relevant literature and contextualizes the study within existing research. Section 3 describes the methodology, including data sources and analytical techniques. Section 4 presents the results, and Section 5 discusses the implications of these findings for public health policy and practice. Finally, Section 6 concludes the paper with a summary of the key findings and recommendations for future research.
 
 
-# Data {#sec-data}
 
-Some of our data is of opendatatoronto (@opendatatoronto).
+# Data
 
+Some of our data is of opendatatoronto (@opendatatoronto). This paper is interested in variables, including DTP coverage rate and MMR coverage rate. Thus, the cleaned data only contain the varables of interest.
+
+
+```{r}
+#| message: false
+#| echo: false
+
+### Read dataset
+analysis_data <- read_csv("/cloud/project/outputs/data/analysis_data.csv")
+analysis_data
+
+```
 
 
 # Model
@@ -51,16 +63,11 @@ This model also aim to evaluate the level of compliance with the ISPA across sch
 We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
 
 
-### Model justification
-
-We expect a positive relationship between the immunization coverage rate and the population of the school. hi. In particular...
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
-
 
 # Results
 
 Our results are summarized in @tbl-modelresults.
+
 
 
 ```{r}
@@ -75,100 +82,23 @@ first_model <-
   readRDS(file = here::here("outputs/models/first_model.rds"))
 ```
 
-
 ```{r}
 #| label: DTP_histogram
 #| fig-cap: histogram of DTP coverage rate percent
-
-ana_data <- read_csv("/cloud/project/outputs/data/analysis_data.csv")
 
 DTP_hist <- hist(ana_data$dtp_coverage_rate_percent,
      main = "Histogram of DTP Coverage Rate", 
      xlab = "DTP Coverage Rate (%)", breaks = 30)
 
+
+```
+
+```{r}
+#| label: MMR_histogram
+#| fig-cap: histogram of MMR coverage rate percent
+
+
 MMR_hist <- hist(ana_data$mmr_coverage_rate_percent,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
 ```
-
-# Discussion
-
-## First discussion point {#sec-first-point}
-
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
-
-## Second discussion point
-
-## Third discussion point
-
-## Weaknesses and next steps
-
-Weaknesses and next steps should also be included.
-
-\newpage
-
-\appendix
-
-# Appendix {-}
-
-
-# Additional data details
-
-# Model details {#sec-model-details}
-
-## Posterior predictive check
-
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
-
-```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
-
-pp_check(first_model) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-posterior_vs_prior(first_model) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
-```
-
-## Diagnostics
-
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
-
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
-
-plot(first_model, "trace")
-
-plot(first_model, "rhat")
-```
-
-
-
-\newpage
-
-
-# References
-
-
