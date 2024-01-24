@@ -65,8 +65,6 @@ We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use
 # Results
 
 The histograms representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
-
-
 ```{r}
 #| echo: false
 #| eval: true
@@ -78,7 +76,6 @@ library(rstanarm)
 first_model <-
   readRDS(file = here::here("outputs/models/first_model.rds"))
 ```
-
 
 ```{r}
 #| label: DTP_histogram
@@ -105,6 +102,7 @@ MMR_hist <- hist(analysis_data$mmr_coverage_rate_percent,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
 ```
+
 
 # Discussion
 
