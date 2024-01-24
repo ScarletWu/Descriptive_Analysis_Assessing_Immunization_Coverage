@@ -1,5 +1,5 @@
 ---
-title: "A Descriptive Analysis Assessing Immunization Coverage and Exemption Rates in Toronto's Schools"
+title: "A Descriptive Analysis Assessing Immunization Coverage Rates in Toronto's Schools"
 
 author: "Ruoxian Wu"
 date: January 23,2024
