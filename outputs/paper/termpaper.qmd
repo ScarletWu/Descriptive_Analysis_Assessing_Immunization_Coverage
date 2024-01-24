@@ -6,6 +6,7 @@ date: January 23,2024
 date-format: long
 abstract: "This study investigates immunization coverage and exemption rates among school-aged children in Toronto, addressing a gap in localized public health data analysis. Utilizing records from Toronto Public Health for the 2017/2018 and 2018/2019 academic years, we conduct a descriptive statistical analysis to assess compliance with the Immunization of School Pupils Act (ISPA). Our findings highlight significant variations in immunization rates across schools and reveal trends in medical and philosophical exemptions. These insights are crucial for informing public health strategies and policies, underscoring the need for targeted interventions to enhance vaccine coverage. The paper contributes to the broader discourse on public health management in urban educational settings."
 format: pdf
+toc: true
 number-sections: true
 bibliography: references.bib
 ---
@@ -26,20 +27,20 @@ library(here)
 
 # Introduction
 
-Immunization remains a cornerstone of public health strategy, particularly in safeguarding children's health within school environments. In Ontario, the Immunization of School Pupils Act (ISPA) mandates that children attending elementary and secondary schools receive vaccinations against common communicable diseases or, alternatively, present valid exemptions. This legislative framework not only aims to protect individual health but also to uphold community health standards through herd immunity. The recent years have seen a growing discussion around immunization coverage, fuelled by global health concerns and the emphasis on preventive healthcare.
+Immunization remains a cornerstone of public health strategy, particularly in safeguarding children's health within school environments. In Ontario, the Immunization of School Pupils Act (ISPA) mandates that children attending elementary and secondary schools receive vaccinations against common communicable diseases or, alternatively, present valid exemptions @Ontario_ca. This legislative framework not only aims to protect individual health but also to uphold community health standards through herd immunity. The recent years have seen a growing discussion around immunization coverage, fuelled by global health concerns and the emphasis on preventive healthcare.
 
-This paper delves into an analysis of the Immunization Coverage Rates and exemption statuses for school pupils aged 7-17 in Toronto, spanning the academic years 2018/2019. The data, sourced from Toronto Public Health, offers a comprehensive view of the immunization landscape within the city's educational institutions. It reflects the adherence to ISPA requirements, capturing both the up-to-date immunization status and recorded exemptions, whether philosophical or medical.
+This paper delves into an analysis of the Immunization Coverage Rates and exemption statuses for school pupils aged 7-17 in Toronto, spanning the academic years 2017-2019. The data, sourced from Toronto Public Health, offers a comprehensive view of the immunization landscape within the city's educational institutions. It reflects the adherence to ISPA requirements, capturing both the up-to-date immunization status and recorded exemptions, whether philosophical or medical.
 
 Despite the critical role of immunization in public health, there exists a gap in localized, data-driven insights into how effectively these mandates are being met at the ground level. This study aims to fill this gap by offering a detailed examination of immunization coverage and exemption patterns in Toronto's schools. The objective is to provide a nuanced understanding of the current status of student immunization, identifying potential areas of concern and patterns that warrant closer attention from public health authorities.
 
-The methodology of this study is grounded in Descriptive Statistics Analysis, which is pivotal for providing a foundational understanding of the data. This approach involves calculating fundamental statistical measures such as mean, median, mode, and standard deviation for key variables, namely immunization rates and exemption rates among school pupils in Toronto. By distilling this data into basic statistical terms, the analysis aims to shed light on the overall level of compliance with the ISPA requirements across different schools. This method provides a straightforward, yet powerful, means of evaluating the current state of student immunization coverage in the city, offering a clear snapshot of both adherence to and deviations from public health mandates.
+The methodology of this study is grounded in Descriptive Statistics Analysis, which is pivotal for providing a foundational understanding of the data. This approach involves calculating fundamental statistical measures such as mean, median, mode, and standard deviation for key variables, namely immunization rates and exemption rates among school pupils in Toronto. By distilling this data into basic statistical terms, the analysis aims to shed light on the overall level of compliance with the ISPA requirements across different schools. This method provides a straightforward means of evaluating the current state of student immunization coverage in the city, offering a clear snapshot of both adherence to and deviations from public health mandates.
 
 
 
 
 # Data
 
-Some of our data is of opendatatoronto (@opendatatoronto). This paper is interested in variables, including DTP coverage rate and MMR coverage rate. Thus, the cleaned data only contain the varables of interest.
+The data is downloaded from opendatatoronto (@opendatatoronto). This paper is interested in variables, including DTP coverage rate and MMR coverage rate. Thus, the cleaned data only contain the varables of interest.
 
 ```{r}
 #| message: false
