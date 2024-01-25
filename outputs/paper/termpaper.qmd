@@ -128,10 +128,10 @@ MMR_hist1718 <- hist(analysis_data1819$mmr_coverage_rate_percent,
 
 # Results
 
-The boxpots @boxplots representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
+The boxpots @fig-boxplots representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
 
 ```{r}
-#| label: boxplots
+#| label: fig-boxplots
 #| fig-cap: boxplots comparing DTP and MMR coverage rate percent across two years
 #| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
 #| echo: false
