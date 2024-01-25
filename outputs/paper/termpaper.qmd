@@ -1,6 +1,5 @@
 ---
-title: "A Descriptive Analysis Assessing Immunization Coverage Rates in Toronto's Schools"
-
+title: "Assessing Immunization Coverage Rates in Toronto Schools"
 author: "Ruoxian Wu"
 date: January 23,2024
 date-format: long
@@ -49,8 +48,8 @@ Two dataset mmunization-coverage-2017-2018 and mmunization-coverage-2018-2019 ar
 analysis_data1718 <- read_csv("/cloud/project/outputs/data/analysis_data1718.csv")
 analysis_data1819 <- read_csv("/cloud/project/outputs/data/analysis_data1819.csv")
 
-head(analysis_data1718)
-head(analysis_data1819)
+knitr::kable(head(analysis_data1718))
+knitr::kable(head(analysis_data1819))
 
 ```
 
@@ -152,9 +151,9 @@ dtp_box <- ggplot(data_combined, aes(x = year, y = dtp_coverage_rate, fill = yea
   xlab("School Year")
 
 
-
-mmr_box
 dtp_box
+mmr_box
+
 
 
 ```
