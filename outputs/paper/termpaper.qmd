@@ -37,12 +37,10 @@ The methodology of this study is grounded in Descriptive Statistics Analysis, wh
 
 # Data
 
-Two dataset mmunization-coverage-2017-2018 and mmunization-coverage-2018-2019 are downloaded from opendatatoronto (@opendatatoronto). This paper is interested in variables, including DTP coverage rate and MMR coverage rate. Thus, the cleaned data only contain the varables of interest.
-
 ```{r}
 #| message: false
 #| echo: false
-#| label: 2018 table
+#| label: tbl-2018
 #| tbl-cap: Sample of Cleaned immunization data from 2017-2018
 
 
@@ -62,8 +60,8 @@ head(analysis_data1718) |>
 ```{r}
 #| message: false
 #| echo: false
-#| label: 2019 table
-#| tbl-cap: Sample of Cleaned immunization data from 2018-2017
+#| label: tbl-2019
+#| tbl-cap: Sample of Cleaned immunization data from 2018-2019
 
 head(analysis_data1819) |>
   kable(
@@ -74,6 +72,8 @@ head(analysis_data1819) |>
 
 ```
 
+Two dataset immunization-coverage-2017-2018 @tbl-2018 and immunization-coverage-2018-2019 @tbl-2019 are downloaded from opendatatoronto (@opendatatoronto). This paper is interested in variables, including DTP coverage rate and MMR coverage rate. Thus, the cleaned data only contain the varables of interest.
+
 # Model
 
 The goal of our modelling strategy is to uncover and understand the underlying patterns and trends in immunization coverage rates and exemption rates within the studied school populations. This includes identifying variations across different schools, time periods, and possibly demographic groups.
@@ -83,17 +83,6 @@ This model also aim to evaluate the level of compliance with the ISPA across sch
 We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
 
 
-```{r}
-#| echo: false
-#| eval: true
-#| warning: false
-#| message: false
-
-library(rstanarm)
-
-first_model <-
-  readRDS(file = here::here("outputs/models/dtp_box.rds"))
-```
 
 ```{r}
 #| label: 2017_histogram
