@@ -42,14 +42,35 @@ Two dataset mmunization-coverage-2017-2018 and mmunization-coverage-2018-2019 ar
 ```{r}
 #| message: false
 #| echo: false
+#| label: 2018 table
+#| tbl-cap: Sample of Cleaned immunization data from 2017-2018
 
 
 ### Read dataset
 analysis_data1718 <- read_csv("/cloud/project/outputs/data/analysis_data1718.csv")
 analysis_data1819 <- read_csv("/cloud/project/outputs/data/analysis_data1819.csv")
 
-knitr::kable(head(analysis_data1718))
-knitr::kable(head(analysis_data1819))
+
+head(analysis_data1718) |>
+  kable(
+    col.names = c("school name", "enrolled population", "DTP coverage rate", 
+                  "MMR coverage rate"),
+      booktabs = TRUE
+  )
+```
+
+```{r}
+#| message: false
+#| echo: false
+#| label: 2019 table
+#| tbl-cap: Sample of Cleaned immunization data from 2018-2017
+
+head(analysis_data1819) |>
+  kable(
+    col.names = c("school name", "enrolled population", "DTP coverage rate", 
+                  "MMR coverage rate"),
+      booktabs = TRUE
+  )
 
 ```
 
@@ -121,7 +142,7 @@ The boxpots representing the distribution of vaccination coverage rates for MMR 
 
 ```{r}
 #| label: boxplots
-#| fig-cap: boxplot comparing DTP and MMR coverage rate percent across two years
+#| fig-cap: boxplots comparing DTP and MMR coverage rate percent across two years
 #| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
 #| echo: false
 #| warning: false
