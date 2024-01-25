@@ -82,6 +82,7 @@ This model also aim to evaluate the level of compliance with the ISPA across sch
 
 We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
 
+We create the boxpolts using the `ggplot2` package @ggplot.
 
 
 ```{r}
@@ -127,7 +128,7 @@ MMR_hist1718 <- hist(analysis_data1819$mmr_coverage_rate_percent,
 
 # Results
 
-The boxpots representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
+The boxpots @boxplots representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
 
 ```{r}
 #| label: boxplots
