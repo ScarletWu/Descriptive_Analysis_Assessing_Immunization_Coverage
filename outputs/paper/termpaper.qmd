@@ -26,7 +26,6 @@ library(here)
 library(patchwork)
 ```
 
-
 # Introduction
 
 Immunization remains a cornerstone of public health strategy, particularly in safeguarding children's health within school environments. In Ontario, the Immunization of School Pupils Act (ISPA) mandates that children attending elementary and secondary schools receive vaccinations against common communicable diseases or, alternatively, present valid exemptions @Ontario_ca. This legislative framework not only aims to protect individual health but also to uphold community health standards through herd immunity. The recent years have seen a growing discussion around immunization coverage, fuelled by global health concerns and the emphasis on preventive healthcare.
@@ -36,9 +35,6 @@ This paper delves into an analysis of the Immunization Coverage Rates and exempt
 Despite the critical role of immunization in public health, there exists a gap in localized, data-driven insights into how effectively these mandates are being met at the ground level. This study aims to fill this gap by offering a detailed examination of immunization coverage and exemption patterns in Toronto's schools. The objective is to provide a nuanced understanding of the current status of student immunization, identifying potential areas of concern and patterns that warrant closer attention from public health authorities.
 
 The methodology of this study is grounded in Descriptive Statistics Analysis, which is pivotal for providing a foundational understanding of the data. This approach involves calculating fundamental statistical measures such as mean, median, mode, and standard deviation for key variables, namely immunization rates and exemption rates among school pupils in Toronto. By distilling this data into basic statistical terms, the analysis aims to shed light on the overall level of compliance with the ISPA requirements across different schools. This method provides a straightforward means of evaluating the current state of student immunization coverage in the city, offering a clear snapshot of both adherence to and deviations from public health mandates.
-
-
-
 
 # Data
 
@@ -67,10 +63,6 @@ This model also aim to evaluate the level of compliance with the ISPA across sch
 We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
 
 
-
-# Results
-
-The histograms representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
 ```{r}
 #| echo: false
 #| eval: true
@@ -80,23 +72,23 @@ The histograms representing the distribution of vaccination coverage rates for M
 library(rstanarm)
 
 first_model <-
-  readRDS(file = here::here("outputs/models/first_model.rds"))
+  readRDS(file = here::here("outputs/models/dtp_box.rds"))
 ```
 
 ```{r}
-#| label: DTP_histogram
-#| fig-cap: histogram of DTP coverage rate percent
-#| fig-subcap: ["DTP histogram","MMR histogram"]
+#| label: 2017_histogram
+#| fig-cap: histogram of DTP coverage rate percent from 2017 to 2018
+#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
 #| echo: false
 #| warning: false
 #| message: false
 #| layout-ncol: 2
 
-DTP_hist1718 <- hist(analysis_data$dtp_coverage_rate_percent,
+DTP_hist1718 <- hist(analysis_data1718$dtp_coverage_rate,
      main = "Histogram of DTP Coverage Rate", 
      xlab = "DTP Coverage Rate (%)", breaks = 30)
 
-MMR_hist1718 <- hist(analysis_data$mmr_coverage_rate_percent,
+MMR_hist1718 <- hist(analysis_data1718$mmr_coverage_rate,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
 
@@ -104,18 +96,68 @@ MMR_hist1718 <- hist(analysis_data$mmr_coverage_rate_percent,
 ```
 
 ```{r}
-#| label: MMR_histogram
-#| fig-cap: histogram of MMR coverage rate percent
+#| label: 2018_histogram
+#| fig-cap: histogram of DTP coverage rate percent from 2018 to 2019
+#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
 #| echo: false
 #| warning: false
 #| message: false
+#| layout-ncol: 2
 
-MMR_hist <- hist(analysis_data$mmr_coverage_rate_percent,
+DTP_hist1718 <- hist(analysis_data1819$dtp_coverage_rate_percent,
+     main = "Histogram of DTP Coverage Rate", 
+     xlab = "DTP Coverage Rate (%)", breaks = 30)
+
+MMR_hist1718 <- hist(analysis_data1819$mmr_coverage_rate_percent,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
+
+
 ```
 
 
+# Results
+
+The boxpots representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
+
+```{r}
+#| label: 2018_histogram
+#| fig-cap: histogram of DTP coverage rate percent from 2018 to 2019
+#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
+#| echo: false
+#| warning: false
+#| message: false
+#| layout-ncol: 2
+
+# Boxplots across two years
+
+data_1819 <- analysis_data1819 %>% rename(mmr_coverage_rate = mmr_coverage_rate_percent, dtp_coverage_rate = dtp_coverage_rate_percent)
+
+
+data_combined <- bind_rows(analysis_data1718, data_1819, .id = "year")
+data_combined$year <- factor(data_combined$year, labels = c("2017-2018", "2018-2019"))
+
+
+
+mmr_box <- ggplot(data_combined, aes(x = year, y = mmr_coverage_rate, fill = year)) +
+  geom_boxplot() +
+  ggtitle("MMR Coverage Rate Comparison") +
+  ylab("MMR Coverage Rate") +
+  xlab("School Year")
+
+dtp_box <- ggplot(data_combined, aes(x = year, y = dtp_coverage_rate, fill = year)) +
+  geom_boxplot() +
+  ggtitle("DTP Coverage Rate Comparison") +
+  ylab("DTP Coverage Rate") +
+  xlab("School Year")
+
+
+
+mmr_box
+dtp_box
+
+
+```
 
 
 # Discussion
@@ -131,6 +173,5 @@ The analysis of Toronto school immunization data highlights some interesting tre
 In terms of vaccine-specific data, there was a notable trend where higher exemption rates corresponded with lower coverage rates for both DTP and MMR vaccines. Additionally, the exemption rates for DTP and MMR were highly consistent across schools, suggesting similar patterns in how exemptions are granted for these vaccines.
 
 Descriptive statistics revealed that the vaccination coverage and exemption rates across schools in Toronto vary, with some schools meeting or exceeding public health targets, while others fall short. This variation underscores the importance of tailored public health strategies to address the specific needs of different school communities.
-
 
 # Reference
