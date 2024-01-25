@@ -45,7 +45,20 @@ print(correlation_matrix)
 
 #### Test real data ####
 
-descriptive_stats2 <- selected_data %>%
+descriptive_stats1718 <- selected_data1718 %>%
+  summarise(
+    across(c(enrolled_population,
+             dtp_coverage_rate,
+             dtp_religious_exemption_rate,
+             mmr_coverage_rate,
+             mmr_religious_exemption_rate),
+           list(mean = ~mean(., na.rm = TRUE), 
+                sd = ~sd(., na.rm = TRUE), 
+                min = ~min(., na.rm = TRUE), 
+                max = ~max(., na.rm = TRUE)))
+  )
+
+descriptive_stats1819 <- selected_data1819 %>%
   summarise(
     across(c(enrolled_population,
              dtp_coverage_rate_percent,
@@ -58,14 +71,26 @@ descriptive_stats2 <- selected_data %>%
                 max = ~max(., na.rm = TRUE)))
   )
 
-print(descriptive_stats2)
+
+print(descriptive_stats1718)
+print(descriptive_stats1819)
 
 # Correlation Analysis
-correlation_matrix2 <- cor(selected_data %>% 
+correlation_matrix1718 <- cor(selected_data1718 %>% 
                             select(enrolled_population,
-                                   dtp_coverage_rate_percent,
-                                   dtp_religious_exemption_rate_percent, 
-                                   mmr_coverage_rate_percent,
-                                   mmr_religious_exemption_rate_percent,
+                                   dtp_coverage_rate,
+                                   dtp_religious_exemption_rate, 
+                                   mmr_coverage_rate,
+                                   mmr_religious_exemption_rate,
                                    ))
-print(correlation_matrix2)
+
+correlation_matrix1819 <- cor(selected_data1819 %>% 
+                                select(enrolled_population,
+                                       dtp_coverage_rate_percent,
+                                       dtp_religious_exemption_rate_percent, 
+                                       mmr_coverage_rate_percent,
+                                       mmr_religious_exemption_rate_percent,
+                                ))
+print(correlation_matrix1718)
+print(correlation_matrix1819)
+
