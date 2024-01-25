@@ -86,13 +86,13 @@ We create the boxpolts using the `ggplot2` package @ggplot.
 
 
 ```{r}
-#| label: 2017_histogram
+#| label: fig-histogram2018
 #| fig-cap: histogram of DTP coverage rate percent from 2017 to 2018
-#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
 #| echo: false
 #| warning: false
 #| message: false
 #| layout-ncol: 2
+#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
 
 DTP_hist1718 <- hist(analysis_data1718$dtp_coverage_rate,
      main = "Histogram of DTP Coverage Rate", 
@@ -105,14 +105,15 @@ MMR_hist1718 <- hist(analysis_data1718$mmr_coverage_rate,
 
 ```
 
+
 ```{r}
-#| label: 2018_histogram
-#| fig-cap: histogram of DTP coverage rate percent from 2018 to 2019
-#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
+#| label: fig-histogram2019
+#| fig-cap: Histograms of DTP coverage rate percent from 2018 to 2019
 #| echo: false
 #| warning: false
 #| message: false
 #| layout-ncol: 2
+#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
 
 DTP_hist1718 <- hist(analysis_data1819$dtp_coverage_rate_percent,
      main = "Histogram of DTP Coverage Rate", 
@@ -132,12 +133,13 @@ The boxpots @fig-boxplots representing the distribution of vaccination coverage 
 
 ```{r}
 #| label: fig-boxplots
-#| fig-cap: boxplots comparing DTP and MMR coverage rate percent across two years
-#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
+#| fig-cap: Boxplots comparing DTP and MMR coverage rate percent across two years
 #| echo: false
 #| warning: false
 #| message: false
 #| layout-ncol: 2
+#| fig-subcap: ["DTP coverage rate histogram","MMR coverage rate histogram"]
+
 
 # Boxplots across two years
 
