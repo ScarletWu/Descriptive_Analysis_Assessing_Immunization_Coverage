@@ -15,6 +15,7 @@ bibliography: references.bib
 #| include: false
 #| warning: false
 #| message: false
+#install.packages("patchwork")
 
 library(tidyverse)
 library(palmerpenguins)
@@ -22,7 +23,9 @@ library(ggplot2)
 library(broom)
 library(knitr)
 library(here)
+library(patchwork)
 ```
+
 
 
 # Introduction
@@ -42,16 +45,21 @@ The methodology of this study is grounded in Descriptive Statistics Analysis, wh
 
 Two dataset mmunization-coverage-2017-2018 and mmunization-coverage-2018-2019 are downloaded from opendatatoronto (@opendatatoronto). This paper is interested in variables, including DTP coverage rate and MMR coverage rate. Thus, the cleaned data only contain the varables of interest.
 
+
 ```{r}
 #| message: false
 #| echo: false
 
 
 ### Read dataset
-analysis_data <- read_csv("/cloud/project/outputs/data/analysis_data.csv")
-analysis_data
+analysis_data1718 <- read_csv("/cloud/project/outputs/data/analysis_data1718.csv")
+analysis_data1819 <- read_csv("/cloud/project/outputs/data/analysis_data1819.csv")
+
+head(analysis_data1718)
+head(analysis_data1819)
 
 ```
+
 
 # Model
 
@@ -66,6 +74,7 @@ We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use
 # Results
 
 The histograms representing the distribution of vaccination coverage rates for MMR (Measles, Mumps, and Rubella) and DTP (Diphtheria, Tetanus, and Pertussis) among school pupils in Toronto.
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -81,13 +90,19 @@ first_model <-
 ```{r}
 #| label: DTP_histogram
 #| fig-cap: histogram of DTP coverage rate percent
+#| fig-subcap: ["DTP histogram","MMR histogram"]
 #| echo: false
 #| warning: false
 #| message: false
+#| layout-ncol: 2
 
-DTP_hist <- hist(analysis_data$dtp_coverage_rate_percent,
+DTP_hist1718 <- hist(analysis_data$dtp_coverage_rate_percent,
      main = "Histogram of DTP Coverage Rate", 
      xlab = "DTP Coverage Rate (%)", breaks = 30)
+
+MMR_hist1718 <- hist(analysis_data$mmr_coverage_rate_percent,
+     main = "Histogram of MMR Coverage Rate", 
+     xlab = "MMR Coverage Rate (%)", breaks = 30)
 
 
 ```
@@ -103,6 +118,9 @@ MMR_hist <- hist(analysis_data$mmr_coverage_rate_percent,
      main = "Histogram of MMR Coverage Rate", 
      xlab = "MMR Coverage Rate (%)", breaks = 30)
 ```
+
+
+
 
 
 # Discussion
@@ -121,3 +139,4 @@ Descriptive statistics revealed that the vaccination coverage and exemption rate
 
 
 # Reference
+
