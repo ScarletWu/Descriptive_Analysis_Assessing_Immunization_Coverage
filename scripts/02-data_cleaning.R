@@ -34,9 +34,7 @@ selected_data1718 <-
     school_name,
     enrolled_population,
     dtp_coverage_rate,
-    dtp_religious_exemption_rate,
     mmr_coverage_rate,
-    mmr_religious_exemption_rate
   )
 selected_data1718
 
@@ -46,9 +44,7 @@ selected_data1819 <-
     school_name,
     enrolled_population,
     dtp_coverage_rate_percent,
-    dtp_religious_exemption_rate_percent,
     mmr_coverage_rate_percent,
-    mmr_religious_exemption_rate_percent
   )
 selected_data1819
 
